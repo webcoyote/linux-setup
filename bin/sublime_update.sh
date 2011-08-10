@@ -15,7 +15,7 @@ fi
 
 if [ -z $1 ]
 then
-    echo 'ERROR: Invalid command. Type "subl-upd help" for a list of commands.'
+    echo 'ERROR: Invalid command. Type "sublime-update.sh help" for a list of commands.'
     exit
 fi
 
@@ -23,7 +23,7 @@ echo $1 | grep -q "^[0-9]*$"
 
 if [ $? -ne 0 ] && [ $1 != 'remove' ] && [ $1 != 'clean' ] && [ $1 != 'help' ]
 then
-    echo 'ERROR: Invalid command. Type "subl-upd help" for a list of commands.'
+    echo 'ERROR: Invalid command. Type "sublime-update.sh help" for a list of commands.'
     exit
 fi
 
@@ -51,7 +51,7 @@ then
     exit
 elif [ $1 = 'help' ]
 then
-    echo 'List of commands:\n  <ver#> - Update to version. Example -> subl-upd 2095\n  clean  - Removes all downloaded archives.\n  remove - Removes Sublime completely.\n  help   - This output.'
+    echo 'List of commands:\n  <ver#> - Update to version. Example -> sublime-update.sh 2095\n  clean  - Removes all downloaded archives.\n  remove - Removes Sublime completely.\n  help   - This output.'
     exit
 else
     echo 'Starting update...'

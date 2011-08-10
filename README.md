@@ -7,15 +7,14 @@ These are my setup scripts to build a Linux box quickly
 Installation
 =====================
 
-	sudo apt-get install -y git-core
-	mkdir -p ~/dev
-	cd ~/dev
-	git clone git@github.com:webcoyote/linux-setup.git
-	cd linux-setup
-	cp personal.sh.template personal.sh
-	gedit personal.sh
-	./system_setup.sh
+	# Configure computer
+	bash < <(curl -s https://raw.github.com/gist/12417bd6bd3fc1e07b31)
 
+	# Install sublime text 2
+	sudo ~/bin/sublime-update.sh 2095
+
+	# Install rvm + ruby
+	~/bin/install-rvm-ruby.sh
 
 Comments
 ========
