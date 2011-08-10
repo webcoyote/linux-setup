@@ -19,4 +19,4 @@ Installation
 Comments
 ========
 
-This is my first github project; if you have any I'd love to hear them!
+This is my first github project; if you have any comments I'd love to hear them!

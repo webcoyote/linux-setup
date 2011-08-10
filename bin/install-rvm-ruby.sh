@@ -4,18 +4,19 @@
 MY_RUBY_VER=ruby-1.9.2-p290
 MY_GEM_VER=1.8.7
 
+# Install zlib (required for some ruby gems)
+sudo apt-get install -y --force-yes zlib1g-dev
 
 # Install rvm
 curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; rvm_bin_path=~/.rvm/bin rvm_man_path=~/.rvm/share/man ./rvm-installer ; rm rvm-installer
-echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bashrc
 source ~/.bashrc
+~/.rvm/bin/rvm reload
 
-
-# Install ruby (which requires zlib)
-sudo apt-get install -y --force-yes zlib1g-dev
+# Install ruby
 rvm pkg install zlib
 rvm install ${MY_RUBY_VER}
 rvm use ${MY_RUBY_VER} --default
+ruby --version
 
 
 # gem update --system doesn't work on Ubuntu, so manually get a more up-to-date version
@@ -28,6 +29,7 @@ rm -r rubygems-${MY_GEM_VER} rubygems-${MY_GEM_VER}.tgz
 
 
 # Install gems in global set
-rvm gemset create global
-rvm use ${MY_RUBY_VER}@global --default
-gem install rake bundler chef --no-rdoc --no-ri
+#source ~/.bashrc
+#rvm gemset create global
+#rvm use ${MY_RUBY_VER}@global --default
+#gem install rake bundler chef --no-rdoc --no-ri
