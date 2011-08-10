@@ -13,9 +13,7 @@ Installation
 	git clone git@github.com:webcoyote/linux-setup.git
 	cd linux-setup
 	cp personal.sh.template personal.sh
-
-	### Edit the personal.sh file
-
+	gedit personal.sh
 	./system_setup.sh
 
 
