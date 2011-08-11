@@ -33,3 +33,7 @@ rm -r rubygems-${MY_GEM_VER} rubygems-${MY_GEM_VER}.tgz
 #rvm gemset create global
 #rvm use ${MY_RUBY_VER}@global --default
 #gem install rake bundler chef --no-rdoc --no-ri
+
+
+# Set default gemset
+echo "rvm 1.9.2@global" > ~/dev/.rvmrc
