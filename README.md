@@ -8,6 +8,7 @@ Installation
 =====================
 
 	# Configure computer
+	sudo apt-get install -qq -y curl
 	bash < <(curl -s https://raw.github.com/gist/12417bd6bd3fc1e07b31)
 
 	# Install sublime text 2
