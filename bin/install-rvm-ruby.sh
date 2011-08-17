@@ -9,8 +9,8 @@ sudo apt-get install -y --force-yes zlib1g-dev
 
 # Install rvm
 curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; rvm_bin_path=~/.rvm/bin rvm_man_path=~/.rvm/share/man ./rvm-installer ; rm rvm-installer
-source ~/.bashrc
-~/.rvm/bin/rvm reload
+source "$HOME/.rvm/scripts/rvm"
+rvm reload
 
 # Install ruby
 rvm pkg install zlib
@@ -26,11 +26,11 @@ cd rubygems-${MY_GEM_VER}
 ruby setup.rb --no-format-executable
 cd ..
 rm -r rubygems-${MY_GEM_VER} rubygems-${MY_GEM_VER}.tgz
+source "$HOME/.rvm/scripts/rvm"
+rvm reload
 
 
 # Install gems in global set
-source ~/.bashrc
-rvm reload
 rvm gemset create global
 rvm use ${MY_RUBY_VER}@global --default
 gem install rake bundler chef --no-rdoc --no-ri
