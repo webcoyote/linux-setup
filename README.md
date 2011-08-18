@@ -11,6 +11,12 @@ Installation
 	sudo apt-get install -qq -y curl
 	bash < <(curl -s https://raw.github.com/gist/12417bd6bd3fc1e07b31)
 
+	# Install zsh
+	sudo apt-get install -y zsh
+	git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	cp ~/bin/webcoyote-zshrc ~/.zshrc
+	chsh -s `which zsh`
+
 	# Install sublime text 2
 	sudo ~/bin/sublime-update.sh 2095
 
