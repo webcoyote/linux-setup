@@ -1,0 +1,6 @@
+(if
+    (is (application_name) "Terminal")
+    (begin
+       (maximize)
+    )
+)

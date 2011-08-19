@@ -1,0 +1,2 @@
+#!/bin/sh
+firefox $@  </dev/null >/dev/null 2>&1 &
