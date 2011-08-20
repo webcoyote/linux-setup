@@ -24,4 +24,3 @@ module Autotest::GnomeNotify
     end
   end
 end
-
