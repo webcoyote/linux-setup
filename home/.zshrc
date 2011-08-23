@@ -33,3 +33,16 @@ source "$HOME/bin/zsh-theme"
 export PATH=/home/pat/.rvm/bin:/home/pat/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+# URL encode something and print it.
+function url-encode; {
+	setopt extendedglob
+	echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
+}
+
+# Search google for the given keywords.
+function google; { ff "http://www.google.com/search?q=`url-encode "${(j: :)@}"`" }
+
+# Make directory and change to it
+mdc() { mkdir -p "$1" && cd "$1" }
+
