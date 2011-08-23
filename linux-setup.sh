@@ -29,10 +29,7 @@ sudo apt-get install -y -qq git-core
 sudo apt-get install -y meld
 sudo apt-get install -y zsh
 sudo apt-get install -y devilspie
-<<<<<<< HEAD
 sudo apt-get install -y sqlitebrowser
-=======
->>>>>>> 8be82aa73b13ee1c177b2d1f82c649bba595f13b
 
 
 # get linux setup
