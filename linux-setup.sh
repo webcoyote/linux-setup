@@ -29,6 +29,7 @@ sudo apt-get install -y -qq git-core
 sudo apt-get install -y meld
 sudo apt-get install -y zsh
 sudo apt-get install -y devilspie
+sudo apt-get install -y sqlitebrowser
 #sudo apt-get install -y wmctrl
 
 
