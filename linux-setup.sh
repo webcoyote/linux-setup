@@ -40,12 +40,12 @@ then
 fi
 
 
-# copy home directory - includes gemrc, rvmrc, zshrc, autotest, bin/, devilspie/
+# copy home directory - includes gemrc, rvmrc, zshrc, bin/, devilspie/
 cp -R ~/dev/linux-setup/home/. ~/
 
 
 # Install sublime text 2
-sudo ~/bin/sublime-update.sh 2095
+sudo ~/bin/sublime-update.sh 2103
 
 
 # Use zsh
