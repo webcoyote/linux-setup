@@ -24,12 +24,19 @@ fi
 
 
 # Install useful stuff
-sudo apt-get update -y -qq
+sudo apt-get update -y
 sudo apt-get install -y -qq git-core
 sudo apt-get install -y meld
 sudo apt-get install -y zsh
 sudo apt-get install -y devilspie
 sudo apt-get install -y sqlitebrowser
+
+
+# Add/update firefox
+sudo add-apt-repository ppa:mozillateam/firefox-stable
+sudo apt-get update -y 
+sudo apt-get upgrade
+sudo apt-get install firefox-locale-en
 
 
 # get linux setup
