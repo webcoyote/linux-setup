@@ -52,7 +52,7 @@ cp -R ~/dev/linux-setup/home/. ~/
 
 
 # Install sublime text 2
-sudo ~/bin/sublime-update.sh 2103
+sudo ~/bin/sublime-update.sh 2107
 
 
 # Use zsh

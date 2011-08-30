@@ -20,3 +20,4 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 PROMPT="${user} ${pwd}$ "
 RPROMPT="${return_code} ${git_branch} ${rvm}"
 
+EDITOR="$HOME/bin/e"
