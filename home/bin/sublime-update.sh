@@ -1,4 +1,7 @@
 #!/bin/sh
+# From https://gist.github.com/894200
+# By https://gist.github.com/Anomareh
+# Edited by PatW to work on my Ubuntu
 
 file="Sublime Text 2 Build ${1} x64.tar.bz2"
 # Uncomment line below for 32 bit.
