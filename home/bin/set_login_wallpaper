@@ -1,0 +1,44 @@
+#!/bin/bash
+
+
+set -o errexit  # crash on error
+
+
+if [[ $(id -u) -ne 0 ]]; then
+    echo "ERROR: You need to run this script with sudo or as root."
+    exit
+fi
+
+
+if [[ -z $1 || $1 == "help" || $1 == "-h" || $1 == "--help" ]]; then
+  echo -e "List of commands:\n  on   - Install configurator.\n  off  - Removes configurator\n  help - Usage"
+  exit
+fi
+
+
+if [[ $1 = "on" ]]; then
+  if [[ ! -f "/usr/share/gdm/autostart/LoginWindow/gnome-appearance-properties.desktop" ]]; then
+    cp /usr/share/applications/gnome-appearance-properties.desktop /usr/share/gdm/autostart/LoginWindow/
+  fi
+  echo -e "Login wallpaper configurator successfully installed\n"
+  echo "To add wallpapers:"
+  echo "  sudo co ~/your-wallpaper-name.jpg /usr/share/backgrounds/"
+  echo "Then logout to change login wallpaper"
+  echo -e "\nRemember to turn this *off* when you're done\n"
+  exit
+fi
+
+
+if [[ $1 = "off" ]]; then
+  if [[  -f "/usr/share/gdm/autostart/LoginWindow/gnome-appearance-properties.desktop" ]]; then
+    rm /usr/share/gdm/autostart/LoginWindow/gnome-appearance-properties.desktop
+  fi
+  echo -e "Login wallpaper configurator successfully removed\n"
+  exit
+fi
+
+
+echo -e "\nERROR: Unknown command: $1\n"
+echo "Type "set_login_wallpaper help" for a list of commands\n"
+exit
+
