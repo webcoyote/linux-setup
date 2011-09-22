@@ -38,7 +38,7 @@ rvm reload
 # Install gems in global set
 mkdir -p ~/dev
 pushd ~/dev
-rvm create --rvmrc --default ${MY_RUBY_VER}@global
+rvm use --create --rvmrc --default ${MY_RUBY_VER}@global
 gem install rake bundler chef --no-rdoc --no-ri
 popd
 
