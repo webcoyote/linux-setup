@@ -9,7 +9,7 @@ Installation
 
 	# Configure computer
 	sudo apt-get install -qq -y curl
-	bash < <(curl -s https://raw.github.com/webcoyote/linux-setup/master/bin/linux-setup.sh)
+	bash < <(curl -s https://raw.github.com/webcoyote/linux-setup/master/linux-setup.sh)
 
 Comments
 ========
