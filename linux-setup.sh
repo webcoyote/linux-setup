@@ -23,19 +23,19 @@ then
 fi
 
 
-# Install useful stuff
+# Update and upgrade
 sudo apt-get update -y
-sudo apt-get install -y -qq git-core
-sudo apt-get install -y meld
-sudo apt-get install -y zsh
-sudo apt-get install -y devilspie
-sudo apt-get install -y sqlitebrowser
+sudo apt-get upgrade -y
 
+# Install useful stuff
+sudo apt-get install -y git-core      # git
+sudo apt-get install -y meld          # meld diff tool
+sudo apt-get install -y zsh           # z shell
+sudo apt-get install -y devilspie     # window organizer
+sudo apt-get install -y sqlitebrowser # sqlite database browser GUI
 
 # Add/update firefox
 sudo add-apt-repository ppa:mozillateam/firefox-stable
-sudo apt-get update -y 
-sudo apt-get upgrade
 sudo apt-get install firefox-locale-en
 
 
@@ -52,7 +52,7 @@ cp -R ~/dev/linux-setup/home/. ~/
 
 
 # Install sublime text 2
-sudo ~/bin/sublime-update.sh 2107
+sudo ~/bin/sublime-update.sh 2111
 
 
 # Use zsh
