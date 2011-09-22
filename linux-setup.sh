@@ -14,7 +14,7 @@ fi
 # Generate SSH key if it doesn't exist
 if [ ! -r "$HOME/.ssh/id_rsa" ]
 then
-  ssh-keygen -t rsa
+  ssh-keygen -N '' -t rsa -f ~/.ssh/id_rsa
 
   # Ubuntu workaround to fix these problems:
   # github Permission denied (publickey).
