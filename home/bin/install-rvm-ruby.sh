@@ -4,6 +4,7 @@
 MY_RUBY_VER=ruby-1.9.2-p290
 MY_GEM_VER=1.8.7
 
+
 # Install zlib (required for some ruby gems)
 sudo apt-get install -y --force-yes zlib1g-dev
 sudo apt-get install -y libxslt-dev libxml2-dev libsqlite3-dev openssl libssl-dev
@@ -35,25 +36,23 @@ rvm reload
 
 
 # Install gems in global set
-# Haven't tried yet; could replace next two lines: rvm --create --default use ${MY_RUBY_VER}@global
-rvm gemset create global
-rvm use ${MY_RUBY_VER}@global --default
+mkdir -p ~/dev
+pushd ~/dev
+rvm create --rvmrc --default ${MY_RUBY_VER}@global
 gem install rake bundler chef --no-rdoc --no-ri
-
-
-# Set default gemset
-echo "rvm 1.9.2@global" > ~/dev/.rvmrc
+popd
 
 
 # Fix rails console
 sudo apt-get install -y libreadline5-dev libncurses5-dev
-cd ~/.rvm/src/${MY_RUBY_VER}/ext/readline
+pushd ~/.rvm/src/${MY_RUBY_VER}/ext/readline
 ruby extconf.rb
 make
 make install
+popd
 
-# Run autotest gem
-sudo apt-get install -y libnotify-bin
-gem install autotest-notification
-an-install
+# Run autotest gem - now using Guard instead
+#sudo apt-get install -y libnotify-bin
+#gem install autotest-notification
+#an-install
 
