@@ -1,3 +1,9 @@
 #!/bin/sh
-mkdir -p ~/patwinbox
-sudo mount -t vboxsf patwinbox /home/pat/patwinbox
+
+set -o errexit  # crash on error
+
+mkdir -p ~/host
+sudo mount -t vboxsf host /home/pat/host
+
+echo "add the following line to /etc/fstab to automount:"
+echo "host  /home/pat/host  vboxsf  defaults 0 0"
