@@ -22,7 +22,7 @@ mkdir -p ~/dev/$PROJECT
 cd ~/dev/$PROJECT
 
 # create rvm gemset
-rvm use 1.9.2@$PROJECT --create --rvmrc
+rvm use --create --rvmrc 1.9.2@$PROJECT
 
 # prep for source control
 git init
