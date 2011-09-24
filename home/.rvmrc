@@ -1,2 +1,9 @@
+# set rvm location
 export rvm_path="$HOME/.rvm"
+
+# automatically use project rvmrc file when changing directories
 export rvm_project_rvmrc=1
+
+# automatically trust rvmrc files when changing directories (dangerous)
+export rvm_trust_rvmrcs_flag=1
+
