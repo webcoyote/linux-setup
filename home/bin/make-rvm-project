@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# by Patrick Wyatt
+# Create a ruby project with named gemset using RVM; initialize git
 
 set -o errexit  # crash on error
 
@@ -29,60 +31,3 @@ git init
 
 # success!
 echo "Created project '$PROJECT'"
-exit 0
-
-
-############ other stuff ##################
-
-
-gem install rails --version 3.0.10
-
-# -T: disable Unit::Test (use rspec instead)
-rails new ../$PROJECT -T
-
-
-#edit GemFile then
-bundle install
-
-# install spect for testing
-rails generate rspec:install
-
-
-# add $PROJECT/bin directory for faster typing
-# bundle exec rspec spec/ ==> bin/rspec spec/
-# bundle exec rake db:migrate ==> bin/rake db:migrate
-bundle install --binstubs
-
-
-# add SQL documentation to model files
-bundle exec annotate --position before 
-
-# Add to git
-git add .
-git commit -a -m 'initial commit'
-
-
-# Run autotest in another shell
-autotest
-bundle exec spork --bootstrap
-bundle exec spork
-rails s
-tail -f log/development.log
-
-## Create project on github
-git remote add origin git@github.com:webcoyote/$PROJECT.git
-git push origin master
-
-
-# Create feature branch
-	git checkout -b branch-name
-	# do some editing
-	git commit -a -m 'comment'
-
-	# merge into master
-	git checkout master
-	git merge branch-name
-
-	# delete branch
-	git branch -d branch-name
-	
