@@ -2,7 +2,7 @@
 
 
 MY_RUBY_VER=ruby-1.9.2-p290
-MY_GEM_VER=1.8.7
+MY_GEM_VER=1.8.10
 
 
 # Install zlib (required for some ruby gems)
@@ -24,14 +24,16 @@ rvm use ${MY_RUBY_VER} --default
 ruby --version
 
 
+# Gem update seems to be working now...
 # gem update --system doesn't work on Ubuntu, so manually get a more up-to-date version
-wget http://production.cf.rubygems.org/rubygems/rubygems-${MY_GEM_VER}.tgz
-tar zxf rubygems-${MY_GEM_VER}.tgz
-cd rubygems-${MY_GEM_VER}
-ruby setup.rb --no-format-executable
-cd ..
-rm -r rubygems-${MY_GEM_VER} rubygems-${MY_GEM_VER}.tgz
-source "$HOME/.rvm/scripts/rvm"
+#wget http://production.cf.rubygems.org/rubygems/rubygems-${MY_GEM_VER}.tgz
+#tar zxf rubygems-${MY_GEM_VER}.tgz
+#cd rubygems-${MY_GEM_VER}
+#ruby setup.rb --no-format-executable
+#cd ..
+#rm -r rubygems-${MY_GEM_VER} rubygems-${MY_GEM_VER}.tgz
+#source "$HOME/.rvm/scripts/rvm"
+gem update --system
 rvm reload
 
 
@@ -39,7 +41,7 @@ rvm reload
 mkdir -p ~/dev
 pushd ~/dev
 rvm use --create --rvmrc --default ${MY_RUBY_VER}@global
-gem install rake bundler chef --no-rdoc --no-ri
+gem install rake bundler --no-rdoc --no-ri
 popd
 
 
