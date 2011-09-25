@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # By Patrick Wyatt 8/10/2011
 # to execute: bash < <(curl -s https://raw.github.com/gist/12417bd6bd3fc1e07b31)
 
@@ -47,8 +47,25 @@ then
 fi
 
 
-# copy home directory - includes gemrc, rvmrc, zshrc, bin/, devilspie/
-cp -R ~/dev/linux-setup/home/. ~/
+# link home directory - includes .gemrc .rvmrc .zshrc bin/* .devilspie/*
+  # new code links files so they can be changed in place
+  # old -- copy home directory - includes gemrc, rvmrc, zshrc, bin/, devilspie/
+  # old -- cp -R ~/dev/linux-setup/home/. ~/
+function link_homedir_files () {
+  for file in $1/*; do
+    if [[ -d $file ]]; then 
+      mkdir -p $2/`basename $file`
+      link_homedir_files $file $2/`basename $file`
+    else
+      ln -f $file $2/`basename $file`
+    fi
+  done
+}
+
+# enable globbing for regular files and dot-files
+shopt -s dotglob
+link_homedir_files ~/dev/linux-setup/home ~
+shopt -u dotglob
 
 
 # Install sublime text 2
