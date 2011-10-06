@@ -3,13 +3,16 @@
 # Edited by PatW to work on my Ubuntu
 # Anomareh's version didn't work; changed == to = in if statements to fix
 
-file="Sublime Text 2 Build ${1} x64.tar.bz2"
-# Uncomment line below for 32 bit.
-#file="Sublime Text 2 Build ${1}.tar.bz2"
-url="http://www.sublimetext.com/${file}"
-first=0
 echo 'Sublime Text 2 editor update'
 
+#file="Sublime Text 2 Build ${1}.tar.bz2"       # 32-bit
+file="Sublime Text 2 Build ${1} x64.tar.bz2"    # 64-bit
+
+#url="http://www.sublimetext.com/${file}"
+url="http://c758482.r82.cf2.rackcdn.com/${file}"
+
+
+# Require sudo
 if [ $(id -u) -ne 0 ]
 then
     echo 'ERROR: You need to run this script with sudo or as root.'
@@ -60,6 +63,7 @@ else
     echo 'Starting update...'
 fi
 
+first=0
 if [ ! -d /opt/subl ]
 then
     mkdir -p /opt/subl/src/
