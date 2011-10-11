@@ -33,6 +33,7 @@ sudo apt-get install -y meld          # meld diff tool
 sudo apt-get install -y zsh           # z shell
 sudo apt-get install -y devilspie     # window organizer
 sudo apt-get install -y sqlitebrowser # sqlite database browser GUI
+sudo apt-get install -y tree          # tree command
 
 # Add/update firefox
 sudo add-apt-repository ppa:mozillateam/firefox-stable
@@ -69,7 +70,7 @@ shopt -u dotglob
 
 
 # Install sublime text 2
-sudo ~/bin/sublime-update.sh 2111
+sudo ~/bin/sublime-update.sh 2126
 
 
 # Use zsh

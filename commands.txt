@@ -1,0 +1,9 @@
+
+
+# Get the full path to the current directory
+# as "$0" by itself will not always provide such
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+
+# Same as above but with all symlinks resolved
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+
