@@ -82,3 +82,7 @@ fi
 
 # Install rvm + ruby
 ~/bin/install-rvm-ruby.sh
+
+
+echo "System setup complete"
+echo "Consider setting noatime in /etc/fstab for speed"
