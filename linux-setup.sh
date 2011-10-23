@@ -25,7 +25,7 @@ fi
 
 # Update and upgrade
 sudo apt-get update -y
-sudo apt-get upgrade -y
+# sudo apt-get upgrade -y   # do not upgrade ubuntu to 11.10; unity blows
 
 # Install useful stuff
 sudo apt-get install -y git-core      # git
@@ -80,9 +80,11 @@ then
   chsh -s `which zsh`
 fi
 
+
 # Install rvm + ruby
 ~/bin/install-rvm-ruby.sh
 
 
 echo "System setup complete"
 echo "Consider setting noatime in /etc/fstab for speed"
+echo 'You might need to run "chsh -s `which zsh`"'
