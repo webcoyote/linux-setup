@@ -83,5 +83,5 @@ fi
 
 
 echo "System setup complete"
-echo "Consider setting noatime in /etc/fstab for speed"
 echo 'You might need to run "chsh -s `which zsh`"'
+
