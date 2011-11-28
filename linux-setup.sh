@@ -52,7 +52,7 @@ fi
 
 # link home directory - includes .gemrc .rvmrc .zshrc bin/* .devilspie/*
 function link_homedir_files () {
-  for file in $1/?*; do
+  for file in $1/*; do
     if [[ -d $file ]]; then 
       mkdir -p $2/`basename $file`
       link_homedir_files $file $2/`basename $file`
@@ -61,7 +61,9 @@ function link_homedir_files () {
     fi
   done
 }
+shopt -s dotglob
 link_homedir_files ~/dev/linux-setup/home ~
+shopt -u dotglob
 
 
 # Install sublime text 2
