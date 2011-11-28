@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # By Patrick Wyatt 8/10/2011
-# to execute: bash < <(curl -s https://raw.github.com/gist/12417bd6bd3fc1e07b31)
+# to execute: 
+#   sudo apt-get install -qq -y curl
+#   bash < <(curl -s https://raw.github.com/webcoyote/linux-setup/master/linux-setup.sh)
 
 
 # Make sure this script is not run with sudo
@@ -49,11 +51,8 @@ fi
 
 
 # link home directory - includes .gemrc .rvmrc .zshrc bin/* .devilspie/*
-  # new code links files so they can be changed in place
-  # old -- copy home directory - includes gemrc, rvmrc, zshrc, bin/, devilspie/
-  # old -- cp -R ~/dev/linux-setup/home/. ~/
 function link_homedir_files () {
-  for file in $1/*; do
+  for file in $1/?*; do
     if [[ -d $file ]]; then 
       mkdir -p $2/`basename $file`
       link_homedir_files $file $2/`basename $file`
@@ -62,11 +61,7 @@ function link_homedir_files () {
     fi
   done
 }
-
-# enable globbing for regular files and dot-files
-shopt -s dotglob
 link_homedir_files ~/dev/linux-setup/home ~
-shopt -u dotglob
 
 
 # Install sublime text 2
