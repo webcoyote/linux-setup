@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 if [[ "$OSTYPE" =~ "darwin" ]]; then
   open -a /Applications/Firefox.app $@
 else
   firefox $@  </dev/null >/dev/null 2>&1 &
 fi
-
