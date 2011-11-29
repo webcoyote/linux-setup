@@ -32,6 +32,7 @@ source $ZSH/oh-my-zsh.sh
 source "$HOME/bin/zsh-theme"
 export PATH=$HOME/.rvm/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 export ZSH
+export EDITOR='subl -w'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
@@ -47,3 +48,7 @@ function google; { ff "http://www.google.com/search?q=`url-encode "${(j: :)@}"`"
 # Make directory and change to it
 mdc() { mkdir -p "$1" && cd "$1" }
 
+# Run one instance of devilspie
+if [ ! `pidof devilspie` ]; then
+	(devilspie &)
+fi
