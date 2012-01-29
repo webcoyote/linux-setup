@@ -11,7 +11,7 @@ sudo apt-get install -y libxslt-dev libxml2-dev libsqlite3-dev openssl libssl-de
 
 
 # Install rvm
-curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; rvm_bin_path=~/.rvm/bin rvm_man_path=~/.rvm/share/man ./rvm-installer ; rm rvm-installer
+bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 source "$HOME/.rvm/scripts/rvm"
 rvm reload
 
