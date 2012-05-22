@@ -32,7 +32,7 @@ git commit -m "initial commit"
 
 # create rvm gemset
 source "$HOME/.rvm/scripts/rvm"
-rvm use --create --rvmrc "1.9.2@$PROJECT"
+rvm use --create --rvmrc "1.9.3@$PROJECT"
 
 
 # this takes a while...
