@@ -41,7 +41,7 @@ gem install rails
 
 
 # Create project
-rails new "../$PROJECT"
+rails new "../$PROJECT" --skip-test-unit
 git add .
 git commit -m "initial rails project"
 
