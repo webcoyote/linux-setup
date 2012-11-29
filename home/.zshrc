@@ -24,25 +24,44 @@ DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git) # rvm rails3 ruby bundler gem knife vagrant ssh-agent)
+plugins=(git) # rvm rails3 ruby bundler gem vagrant ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+###################
+# CUSTOM
+###################
 source "$HOME/bin/zsh-theme"
 export PATH=$HOME/.rvm/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 export ZSH
 
-if [[ "$OSTYPE" =~ "linux-gnu" ]]; then
-    export EDITOR='subl -w'
+# Configure editor
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+  export EDITOR='/Applications/Sublime\ Text\ 2.app'
+  alias e='open -a /Applications/Sublime\ Text\ 2.app'
+elif [[ "$OSTYPE" =~ "linux-gnu" ]]; then
+  export EDITOR='/usr/local/bin/subl -w'
+  alias e='/usr/local/bin/subl'
 fi
 
+# RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+# Run one instance of devilspie to manage window sizes (Linux only)
+if [[ "$OSTYPE" =~ "linux-gnu" ]]; then
+  if [ ! `pidof devilspie` ]; then
+    (devilspie &)
+  fi
+fi
+
+###################
+# FUNCTIONS
+###################
 
 # URL encode something and print it.
 function url-encode; {
-	setopt extendedglob
-	echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
+  setopt extendedglob
+  echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
 }
 
 # Search google for the given keywords.
@@ -50,10 +69,3 @@ function google; { ff "http://www.google.com/search?q=`url-encode "${(j: :)@}"`"
 
 # Make directory and change to it
 mdc() { mkdir -p "$1" && cd "$1" }
-
-# Run one instance of devilspie to manage window sizes (Linux only)
-if [[ "$OSTYPE" =~ "linux-gnu" ]]; then
-	if [ ! `pidof devilspie` ]; then
-		(devilspie &)
-	fi
-fi
